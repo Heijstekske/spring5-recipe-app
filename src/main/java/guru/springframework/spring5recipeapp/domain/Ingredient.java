@@ -9,56 +9,65 @@ import java.math.BigDecimal;
 @Entity
 public class Ingredient {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Long id;
+   private String description;
+   private BigDecimal amount;
 
-    private String description;
-    private BigDecimal amount;
+   @OneToOne(fetch = FetchType.EAGER)
+   private UnitOfMeasure uom;
 
-    @ManyToOne
-    private Recipe recipe;
+   @ManyToOne
+   private Recipe recipe;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    UnitOfMeasure uom;
+   public Ingredient() {
+   }
 
-    public Long getId() {
-        return id;
-    }
+   public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+      this.description = description;
+      this.amount = amount;
+      this.uom = uom;
+      this.recipe = recipe;
+   }
 
-    public void setId(Long ingredientId) {
-        this.id = ingredientId;
-    }
+   public Long getId() {
+      return id;
+   }
 
-    public String getDescription() {
-        return description;
-    }
+   public void setId(Long id) {
+      this.id = id;
+   }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   public String getDescription() {
+      return description;
+   }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
+   public void setDescription(String description) {
+      this.description = description;
+   }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
+   public BigDecimal getAmount() {
+      return amount;
+   }
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
+   public void setAmount(BigDecimal amount) {
+      this.amount = amount;
+   }
 
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
+   public Recipe getRecipe() {
+      return recipe;
+   }
 
-    public UnitOfMeasure getUom() {
-        return uom;
-    }
+   public void setRecipe(Recipe recipe) {
+      this.recipe = recipe;
+   }
 
-    public void setUom(UnitOfMeasure uom) {
-        this.uom = uom;
-    }
+   public UnitOfMeasure getUom() {
+      return uom;
+   }
+
+   public void setUom(UnitOfMeasure uom) {
+      this.uom = uom;
+   }
 }
