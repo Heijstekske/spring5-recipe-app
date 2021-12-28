@@ -11,7 +11,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
+    private Long id;
     private String description;
 
     @ManyToMany(mappedBy = "categories")
@@ -20,12 +20,12 @@ public class Category {
 
 
     //getters & setters
-    public Long getCategoryId() {
-        return categoryId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setId(Long categoryId) {
+        this.id = categoryId;
     }
 
     public String getDescription() {

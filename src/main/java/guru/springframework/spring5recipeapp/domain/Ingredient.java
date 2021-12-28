@@ -11,7 +11,7 @@ public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ingredientId;
+    private Long id;
 
     private String description;
     private BigDecimal amount;
@@ -22,12 +22,12 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)
     UnitOfMeasure uom;
 
-    public Long getIngredientId() {
-        return ingredientId;
+    public Long getId() {
+        return id;
     }
 
-    public void setIngredientId(Long ingredientId) {
-        this.ingredientId = ingredientId;
+    public void setId(Long ingredientId) {
+        this.id = ingredientId;
     }
 
     public String getDescription() {

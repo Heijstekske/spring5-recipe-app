@@ -10,23 +10,23 @@ public class UnitOfMeasure {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uoaId;
+    private Long id;
 
-    private String uomDescription;
+    private String description;
 
-    public Long getUoaId() {
-        return uoaId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUoaId(Long uoaId) {
-        this.uoaId = uoaId;
+    public void setId(Long uoaId) {
+        this.id = uoaId;
     }
 
-    public String getUomDescription() {
-        return uomDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setUomDescription(String uon) {
-        this.uomDescription = uon;
+    public void setDescription(String uon) {
+        this.description = uon;
     }
 }

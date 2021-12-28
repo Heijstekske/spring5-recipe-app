@@ -11,7 +11,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long recipeId;
+    private Long id;
 
     private String description;
     private Integer prepTime;
@@ -35,17 +35,17 @@ public class Recipe {
 
     @ManyToMany
     @JoinTable(name = "recipe_category",
-    joinColumns = @JoinColumn(name = "recipe_Id"),
+    joinColumns = @JoinColumn(name = "recipe_id"),
     inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
 
     //getters & setters
-    public Long getRecipeId() {
-        return recipeId;
+    public Long getId() {
+        return id;
     }
 
-    public void setRecipeId(Long id) {
-        this.recipeId = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
