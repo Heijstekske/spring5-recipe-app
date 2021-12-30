@@ -1,44 +1,24 @@
 package guru.springframework.spring5recipeapp.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 /**
  * @author NH 2021-09-17
  */
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Long id;
 
-    @OneToOne
-    private Recipe recipe;
+   @OneToOne
+   private Recipe recipe;
 
-    @Lob
-    private String recipeNotes;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long notesId) {
-        this.id = notesId;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public String getRecipeNotes() {
-        return recipeNotes;
-    }
-
-    public void setRecipeNotes(String recipeNotes) {
-        this.recipeNotes = recipeNotes;
-    }
+   @Lob
+   private String recipeNotes;
 }
